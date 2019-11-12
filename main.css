@@ -6,21 +6,15 @@ h1{
 .form-row{
 	margin-top: 20px;
 }
-.form-group{
-	margin-left: 70px;
-
-}
-.form-group1{
-	margin-left: 70px;
-
-}
 .padre{
-	width: 75%;
 	height: 60%;
-	margin-top: 5%;
-	margin-left: 210px;
+	width: 80%;
+	margin-top: 30px;
+	margin-left: 10%;
+}
+.conte_formulario{
 	background:#EEEFF0;
-	
+	padding: 20px;
 }
 .text{
 margin-top: 5%;
