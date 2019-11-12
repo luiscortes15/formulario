@@ -1,16 +1,8 @@
 window.onload = function(){
 	let boton = document.getElementById('pod');
-
-	if(boton){
-		boton.addEventListener('click', guardar_datos);
-		
-	}
-	
-
-
+	boton.addEventListener('click', guardar_datos);
 }
 const array  = [];
-
 
 function guardar_datos() {
 	
@@ -24,48 +16,51 @@ function guardar_datos() {
 		textarea: document.getElementById("text").value,
 	}
 	limpiarcampos();
-	pintar_datos(object);
+
+	array.push(object);
+	pintar_datos();
 	
 }
 
 
-function pintar_datos(object) {
+function pintar_datos() {
 	
-	array.push(object);
 
-	const table = document.getElementById('tabla'); 
-	const tr = document.createElement("tr");
-	
-	const td = document.createElement("td");
-	td.innerText = object.concepto;
-	tr.appendChild(td)
+	const tbody = document.querySelector('#tabla tbody'); 
+	tbody.innerHTML = '';
 
-	const td1 = document.createElement("td");
-	td1.innerText = object.tipo;
-	tr.appendChild(td1)
+	array.forEach(element => {
+		const tr = document.createElement("tr");
+		const td = document.createElement("td");
+		td.innerText = element.concepto;
+		tr.appendChild(td)
 
-
-	const td2 = document.createElement("td");
-	td2.innerText = object.monto;
-	tr.appendChild(td2)
-
-	const td3 = document.createElement("td");
-	td3.innerText = object.fecha;
-	tr.appendChild(td3)
-
-	const td4 = document.createElement("td");
-	td4.innerText = object.textarea;
-	tr.appendChild(td4);
-
-	// mi html iconos
-	let unica = document.createElement("td");
-	unica.innerHTML = `<img src="basura.png" alt="" class="imagen1"><img src="editar.png" alt="" class="imagen2">`;
-	tr.appendChild(unica);
+		const td1 = document.createElement("td");
+		td1.innerText = element.tipo;
+		tr.appendChild(td1)
 
 
-	table.appendChild(tr);
+		const td2 = document.createElement("td");
+		td2.innerText = element.monto;
+		tr.appendChild(td2)
+
+		const td3 = document.createElement("td");
+		td3.innerText = element.fecha;
+		tr.appendChild(td3)
+
+		const td4 = document.createElement("td");
+		td4.innerText = element.textarea;
+		tr.appendChild(td4);
 
 
+		// mi html iconos
+		let unica = document.createElement("td");
+		unica.innerHTML = `<img src="basura.png" alt="" class="imagen1"><img src="editar.png" alt="" class="imagen2">`;
+		tr.appendChild(unica);
+
+
+		tbody.appendChild(tr);
+	})
 }
 
 const limpiarcampos = () => {
