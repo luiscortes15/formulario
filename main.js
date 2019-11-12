@@ -7,7 +7,6 @@ window.onload = function(){
 	}
 	
 
-
 }
 const array  = [];
 
@@ -59,15 +58,18 @@ function pintar_datos(object) {
 
 	// mi html iconos
 	let unica = document.createElement("td");
-	unica.innerHTML = `<img src="basura.png" alt="" class="imagen1"><img src="editar.png" alt="" class="imagen2">`;
+	unica.innerHTML = `<img src="basura.png" alt="" class="imagen1" onclick="changeText(event)"><img src="editar.png" alt="" class="imagen2" onclick="changeText(event)">`;
 	tr.appendChild(unica);
 
 
 	table.appendChild(tr);
-
+	
 
 }
 
+function unica(id) {
+	id.innerHTML = "click";
+  }
 const limpiarcampos = () => {
 
 	document.getElementById("input").value ='';
